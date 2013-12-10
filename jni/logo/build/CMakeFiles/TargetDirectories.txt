@@ -1,0 +1,2 @@
+/home/leo/Gear2D/android-project/jni/logo/build/CMakeFiles/logo.dir
+/home/leo/Gear2D/android-project/jni/logo/build/CMakeFiles/logo-static.dir

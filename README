@@ -1,0 +1,54 @@
+Gear2D Android project
+----------------------
+
+This project aims to be the initial setup and example needed to build
+and run android projects using Gear2D.
+
+You'll need the android-ndk installed. Refer to your package manager
+on instructions of how to install it.
+
+Go to the folder jni/ and clone gear2d and gear2d-components repository:
+
+  cd jni && git clone http://github.com/Gear2D/gear2d
+  cd jni && git clone http://github.com/Gear2D/gear2d-components
+
+They will have build rules for themselves for android.
+
+Enter jni folder and run ndk-build. It will build (slightly modifed versions of)
+SDL2, SDL2_mixer, SDL2_image and others.
+
+Later, running ant debug will create an debug apk of your app. If you have
+your device connected, you can install it by typing.
+adb install bin/YourApp-debug.apk
+
+Creating entities
+-----------------
+Look at assets/ folder. There you create entities and put your assets like
+musics and images. You can create subfolders there and reference them in your
+entities' yaml file.
+
+Creating new components
+-----------------------
+
+The folder jni/logo contains a component named logo that displays the
+blood/smile animation. You can use it and its folder structure to create
+new components. No changes are needed in Android.mk if your component is
+not very complex (i.e, doesn't depend on a lot of stuff).
+
+After that, open src/Android.mk and change LOCAL_WHOLE_STATIC_LIBRARIES and
+add the name of your component there. It'll be statically compiled and linked
+into the final library.
+
+Change the application icon and name
+------------------------------------
+
+Open build.xml, change <project name="Gear2D" default="help"> to whatever
+name you want your apk file to have.
+
+Open AndroidManifest.xml. Change the <activitiy android:name="Gear2D" line
+to whatever you want the name of your application to be.
+
+It is recommended to follow instrunctions on that file to change your package name
+so it does not collides with another apps.
+
+Go to res/drawable. The file ic_launcher.png is the icon to your application. Change it at will.

@@ -1,0 +1,8 @@
+objects: 
+  background
+  face
+
+compath: /usr/local/lib/gear2d/component
+renderer:
+  w: 384
+  h: 592

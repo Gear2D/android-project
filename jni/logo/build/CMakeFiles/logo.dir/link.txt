@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -g   -shared -Wl,-soname,liblogo.so -o liblogo.so CMakeFiles/logo.dir/logo.cc.o /usr/local/lib64/libgear2d.so -Wl,-rpath,/usr/local/lib64: 

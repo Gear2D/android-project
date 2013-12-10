@@ -1,0 +1,2 @@
+/usr/bin/ar cr liblogo-static.a  CMakeFiles/logo-static.dir/logo.cc.o
+/usr/bin/ranlib liblogo-static.a

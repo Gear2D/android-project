@@ -1,0 +1,17 @@
+attach: spatial/space2d renderer/renderer2 audiosource/audiosource
+
+audiosource:
+  music:
+    value: Edward_Shallow_-_01_-_Inside_Leaving.ogg
+    playing: true
+
+renderer.surfaces:
+  bg=background.png
+  gear=gear.png
+
+bg:
+  w: renderer.w
+  h: renderer.h
+
+gear:
+  z: 1
