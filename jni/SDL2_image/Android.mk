@@ -108,7 +108,7 @@ ifeq ($(SUPPORT_PNG),true)
         $(PNG_LIBRARY_PATH)/pngwtran.c \
         $(PNG_LIBRARY_PATH)/pngwutil.c
 		LOCAL_EXPORT_LDLIBS += -lz
-    LOCAL_LDLIBS += -lz
+#    LOCAL_LDLIBS += -lz
 endif
 
 ifeq ($(SUPPORT_WEBP),true)
