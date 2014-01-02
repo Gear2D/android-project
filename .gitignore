@@ -1,3 +1,11 @@
+bin/
+obj/
+libs/
+gen/
+build/
+
+*.kdev*
+
 # Compiled Object files
 *.slo
 *.lo
