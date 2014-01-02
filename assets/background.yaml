@@ -1,4 +1,8 @@
-attach: spatial/space2d renderer/renderer2 audiosource/audiosource
+attach: 
+  spatial/space2d
+  renderer/renderer2
+  audiosource/audiosource
+  touch/touch
 
 audiosource:
   music:
@@ -7,11 +11,7 @@ audiosource:
 
 renderer.surfaces:
   bg=background.png
-  gear=gear.png
 
 bg:
   w: renderer.w
   h: renderer.h
-
-gear:
-  z: 1
