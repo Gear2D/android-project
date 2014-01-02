@@ -2,7 +2,17 @@ attach: renderer/renderer2 logo/logo mouse/mouse
 
 renderer.surfaces:
   face=face.png
+  gear=gear.png
+
+renderer.texts: test
+  
+gear:
+  z: 1
+  bind: false
 
 face:
   z: 2
   alpha: .0
+
+test:
+  text: Zomg
