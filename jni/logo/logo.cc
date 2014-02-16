@@ -1,4 +1,5 @@
 #include "gear2d.h"
+#include <string>
 
 using namespace gear2d;
 
@@ -20,6 +21,11 @@ class logo : public component::base {
     gear2d::link<int> gearx;
     gear2d::link<int> geary;
     
+    struct {
+      gear2d::link<float> x, y, w, h;
+      float basew, baseh;
+    } camera;
+    
     int ow,  oh, ox;
     
 };
@@ -36,6 +42,8 @@ void logo::setup(object::signature & sig) {
   gearw = fetch<int>("gear.w");
   gearh = fetch<int>("gear.h");
   gearx = fetch<int>("gear.x");
+  camera = { globals.fetch<float>("camera.x"), globals.fetch<float>("camera.y"), globals.fetch<float>("camera.w"), globals.fetch<float>("camera.h") };
+  camera.basew = camera.w; camera.baseh = camera.h;
   ow = gearw;
   oh = gearh;
   ox = gearx;
@@ -49,7 +57,6 @@ void logo::update(timediff dt, int begin) {
     facealpha = 1.0f;
   }
   */
-   modinfo("logo");
   float tx = read<float>("touch.0.x") * read<int>("render.w");
   float ty = read<float>("touch.0.y") * read<int>("render.h");
   
@@ -60,15 +67,23 @@ void logo::update(timediff dt, int begin) {
     tx = cx;
     ty = cy;
   }
-  trace(tx, cx, tx - cx, ty, cy, ty - cy);
-  
   //write("x.speed", tx - cx);
   //write("y.speed", ty - cy);
- 
+  
   facealpha = facealpha * 0.9 + (0.1 * read<float>("touch.0.pressure"));
   if (facealpha > 1) facealpha = 1.0f;
-  gearw = ow * (1+ read<float>("touch.0.pressure"));
+  static char buf[255];
+
+  float p = read<float>("touch.0.pressure");
+  //sprintf(buf, "%f", p);
+  //write<std::string>("test.text", buf);  
+  
+  gearw = ow * (1+ p);
   gearx = ox - (ow - gearw) / 2.0f;
+  //camera.x = tx;
+  //camera.y = ty;
+  //camera.w = (1-p) * camera.basew;
+  //camera.h = (1-p) * camera.baseh;
 
   //trace(ow, oh, gearw, gearh);
 }

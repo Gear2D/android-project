@@ -13,5 +13,5 @@ renderer.surfaces:
   bg=background.png
 
 bg:
-  w: renderer.w
-  h: renderer.h
+  w: $camera.w
+  h: $camera.h
