@@ -4,8 +4,8 @@ objects:
 
 compath: /usr/local/lib/gear2d/component
 renderer:
-  w: 384  
-  h: 598
+  w: 768
+  h: 1196
   fullscreen: false
   
 camera:

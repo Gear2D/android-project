@@ -73,7 +73,28 @@ void logo::update(timediff dt, int begin) {
   facealpha = facealpha * 0.9 + (0.1 * read<float>("touch.0.pressure"));
   if (facealpha > 1) facealpha = 1.0f;
   static char buf[255];
+  int m =read<int>("mouse.1");
 
+  if (m == 1) {
+    modinfo("logo");
+    float x = read<int>("mouse.x");
+    float y = read<int>("mouse.y");
+    trace("Got a click in", x, y, "in camera. Actual camera is", camera.x, camera.y);
+    camera.w = camera.w/2;
+    camera.h = camera.h/2;
+    camera.x = (camera.x + x) - camera.w/2;
+    camera.y = (camera.y + y) - camera.h/2;
+
+    trace("Camera set to", camera.x, camera.y);
+    //camera.y = y;
+  } else if (m == 3) {
+    camera.w = camera.basew;
+    camera.h = camera.baseh;
+    camera.x = 0;
+    camera.y = 0;
+  }
+  
+    
   float p = read<float>("touch.0.pressure");
   //sprintf(buf, "%f", p);
   //write<std::string>("test.text", buf);  

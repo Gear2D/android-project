@@ -11,7 +11,12 @@ audiosource:
 
 renderer.surfaces:
   bg=background.png
+  grid=grid.png
 
 bg:
-  w: $camera.w
-  h: $camera.h
+  h: $renderer.h
+  fixed: false
+
+grid:
+  fixed: true
+  z: 99
